@@ -1,0 +1,691 @@
+:root {
+  --bg-page: #f3f5f8;
+  --bg-section-light: #f3f5f8;
+  --bg-section-white: #ffffff;
+  --bg-footer: #1f364c;
+
+  --text-main: #243746;
+  --text-muted: #6b7c8b;
+  --text-soft: #8f9ead;
+  --text-on-dark: #ffffff;
+
+  --accent: #3d8ac8;
+  --accent-soft: #5c9fd2;
+
+  --radius-lg: 22px;
+  --radius-card: 28px;
+  --shadow-card: 0 18px 40px rgba(15, 47, 73, 0.26);
+  --max-width: 1120px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* NAVBAR ---------------------------------------------------- */
+.navbar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  color: #fff;
+}
+
+.navbar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.4rem 1.5rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.nav-left {
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.nav-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Dil seçici */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.lang-switch:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.lang-icon-globe {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1.5px solid #fff;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.lang-icon-globe::before,
+.lang-icon-globe::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.lang-icon-globe::after {
+  transform: rotate(90deg);
+}
+
+.lang-text {
+  letter-spacing: 0.05em;
+}
+
+.lang-arrow {
+  font-size: 0.65rem;
+}
+
+/* Hamburger menü */
+.hamburger {
+  width: 26px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+/* HERO ------------------------------------------------------ */
+.hero {
+  position: relative;
+  color: #fff;
+  margin-bottom: 3.5rem;
+}
+
+/* Havuz görseli */
+.hero-image {
+  width: 100%;
+  min-height: 460px;
+  max-height: 560px;
+  overflow: hidden;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 16px 40px rgba(15, 47, 73, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+  display: block;
+  filter: brightness(1.05);
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  border-radius: 0 0 40px 40px;
+  background: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 65%; /* base */
+  transform: translateY(-25%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  pointer-events: auto;
+  z-index: 3;
+}
+
+.hero-text-box {
+  max-width: 720px;
+  padding: 0 1.4rem;
+  text-align: center;
+}
+
+/* Başlık */
+.hero-title {
+  font-size: clamp(1.3rem, 1.7vw + 0.7rem, 1.9rem);
+  font-weight: 700;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+
+/* Alt satır */
+.hero-title span {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  background: none;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+/* Açıklama */
+.hero-subtitle {
+  font-size: 0.78rem;
+  max-width: 520px;
+  margin: 0 auto;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* GENEL SECTIONS ------------------------------------------- */
+section {
+  padding: 3.5rem 0;
+}
+
+.section-header {
+  margin-bottom: 1.8rem;
+}
+
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #243746;
+}
+
+.section-lead {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+/* WHAT IS VISOTEL ------------------------------------------ */
+.section-what {
+  /* soldan hafif gri, sağa beyaza geçiş */
+  background: linear-gradient(to right, #eef1f5 0%, #ffffff 40%);
+}
+
+.what-top {
+  margin-bottom: 2rem;
+}
+
+.what-top-kicker {
+  display: none;
+}
+
+/* Başlık: "What is Visotel?" – PDF’e yakın görünüm */
+.what-top h2 {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #355f82; /* mavi ton */
+  letter-spacing: 0.01em;
+  margin-bottom: 0.9rem;
+}
+
+/* Ana paragraf */
+.what-top p {
+  font-size: 1.02rem;
+  color: #3c4a55; /* koyu gri */
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+/* WHAT CARD – 2×2 GRID, PDF DÜZENİ */
+.what-card {
+  background-color: var(--bg-section-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 2.3rem 2.4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Sol üst metin bloğu */
+.what-left-top {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.1rem;
+}
+
+.areas-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.areas-description {
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.areas-list {
+  list-style: disc;
+  margin-left: 1.1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* Sağ üst büyük görsel */
+.img-top-right img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(15, 47, 73, 0.35);
+  object-fit: cover;
+}
+
+/* Sol alt görsel */
+.img-bottom-left img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(15, 47, 73, 0.35);
+  object-fit: cover;
+}
+
+/* Sağ alt açıklama metinleri */
+.what-bottom-text {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+/* WHAT IMAGES  */
+.what-images {
+  width: 100%;
+  max-width: 380px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Üst (büyük) görsel – sağ üst */
+.what-image-main {
+  align-self: flex-end;
+  width: 85%;
+  max-width: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 47, 73, 0.28);
+}
+
+/* Alt (küçük) görsel – sol alt */
+.what-image-secondary {
+  align-self: flex-start;
+  width: 70%;
+  max-width: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 4px solid #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 47, 73, 0.3);
+}
+
+.what-image-main img,
+.what-image-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* VR-first hotel – PDF tarzı renkler */
+.highlight-blue {
+  color: #3d8ac8; /* mavi */
+  font-weight: 700;
+}
+
+/* EUROPEAN DESTINATIONS ------------------------------------ */
+.section-destinations {
+  background-color: #dde4ee;
+  padding-top: 3rem;
+  padding-bottom: 3.5rem;
+}
+
+/* Başlık düzenlemesi – daha büyük & lacivert */
+.section-destinations .section-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #1f3b5b; /* lacivert-mavi ton */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Kart */
+.dest-card {
+  background-color: #f4f7fb;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Harita */
+.dest-map {
+  width: 100%;
+  max-height: 340px;
+  overflow: hidden;
+}
+
+.dest-map img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Alt yazı – PDF stili */
+.dest-caption {
+  padding: 1.5rem 2.3rem 2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #243746; /* koyu gri */
+  background: transparent;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* İkon (>)  */
+.dest-caption::after {
+  content: "›";
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #3d8ac8; /* mavi ikon */
+}
+
+/* VISION ---------------------------------------------------- */
+.section-vision {
+  background-color: var(--bg-section-light);
+}
+
+.vision-card {
+  background-color: var(--bg-section-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 2.4rem 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.vision-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.vision-text {
+  font-size: 0.96rem;
+  color: var(--text-muted);
+}
+
+.vision-image-wrapper {
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(15, 47, 73, 0.35);
+}
+
+.vision-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vision-caption {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+/* FOOTER ---------------------------------------------------- */
+footer {
+  background-color: #617b8a; /* PDF'teki gri-mavi zemin */
+  color: #ffffff;
+  padding: 3rem 0 2.4rem;
+}
+
+/* İç düzen */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  font-size: 1rem;
+}
+
+/* Founder üst başlık */
+.footer-founder-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.9;
+  margin-bottom: 0.4rem;
+}
+
+/* Founder adı */
+.footer-founder-name {
+  font-size: 2.1rem; /* büyük */
+  font-weight: 800; /* PDF gibi kalın */
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Ana açıklama */
+.footer-founder-sub {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  color: #e9eef2;
+}
+
+/* İletişim — mini madde işareti */
+.footer-founder-mail {
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.footer-founder-mail a {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* İnce çizgi */
+.footer-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  opacity: 0.4;
+  margin: 0.6rem 0 1rem;
+}
+
+/* Alt telif & logo */
+.footer-right {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.footer-logo {
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 1.2rem;
+}
+/* Footer çizgileri - PDF stili */
+.footer-lines {
+  margin: 0.8rem 0 1.6rem;
+}
+
+.footer-line {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-line-short {
+  width: 80px; /* kısa çizgi */
+  margin-bottom: 0.6rem;
+}
+
+.footer-line-long {
+  width: 100%; /* tam genişlik çizgi */
+}
+
+/* RESPONSIVE ----------------------------------------------- */
+@media (max-width: 960px) {
+  .hero-content {
+    padding-bottom: 3.8rem;
+  }
+
+  .vision-card,
+  .footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .what-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.4rem;
+  }
+
+  .what-images {
+    max-width: 320px;
+    margin-left: auto;
+  }
+
+  .what-image-secondary {
+    right: 2%;
+    bottom: -16%;
+  }
+
+  .footer-right {
+    text-align: left;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-image {
+    min-height: 360px;
+  }
+
+  .hero-content {
+    padding-bottom: 3rem;
+    top: 54%;
+    transform: translateY(-20%);
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.76rem;
+  }
+
+  .what-card,
+  .vision-card {
+    padding: 1.8rem 1.6rem;
+  }
+
+  .dest-caption {
+    padding-inline: 1.6rem;
+  }
+
+  .vision-title {
+    font-size: 1.6rem;
+  }
+
+  .vision-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===============================
+   DESKTOP HERO ADJUSTMENTS
+   (Sadece geniş ekranlar için)
+==================================*/
+@media (min-width: 961px) {
+  .hero-content {
+    top: 72%; /* daha aşağıda */
+    transform: translateY(-20%);
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 600px;
+  }
+}
